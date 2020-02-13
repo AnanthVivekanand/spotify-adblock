@@ -1,6 +1,6 @@
 # MacOS Spotify Desktop Adblocker
 
-This project uses a proxy to strip all ad-related requests from the Spotify adblock application.
+This project uses a proxy to strip all ad-related requests from the Spotify desktop application.
 
 ## Instructions
 
