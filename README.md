@@ -12,8 +12,9 @@ Configure it as shown:
 ![Proxy config](https://i.imgur.com/TaEWjkB.png)
 
 Run: `git clone https://github.com/AnanthVivekanand/spotify-adblock-macos.git && cd spotify-adblock-macos`  
-Run: `npm i`  
-Run: `npm start`  
+Run: `npm i`
+Run: `export PORT=8080`  
+Run: `npm start`
 
 Great, your proxy server for Spotify is now working! You should be seeing: 
 
