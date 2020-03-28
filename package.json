@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/albertoxamin/spotify-adblock-macos.git"
+    "url": "git+https://github.com/AnanthVivekanand/spotify-adblock-macos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/albertoxamin/spotify-adblock-macos/issues"
+    "url": "https://github.com/AnanthVivekanand/spotify-adblock-macos/issues"
   },
-  "homepage": "https://github.com/albertoxamin/spotify-adblock-macos#readme",
+  "homepage": "https://github.com/AnanthVivekanand/spotify-adblock-macos#readme",
   "dependencies": {
     "http-proxy": "^1.18.0",
     "micromatch": "^4.0.2"
