@@ -1,0 +1,24 @@
+{
+  "name": "spotify-adblock-macos",
+  "version": "1.0.0",
+  "description": "This project uses a proxy to strip all ad-related requests from the Spotify desktop application.",
+  "main": "index.js",
+  "scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnanthVivekanand/spotify-adblock-macos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnanthVivekanand/spotify-adblock-macos/issues"
+  },
+  "homepage": "https://github.com/AnanthVivekanand/spotify-adblock-macos#readme",
+  "dependencies": {
+    "http-proxy": "^1.18.0",
+    "micromatch": "^4.0.2"
+  }
+}
