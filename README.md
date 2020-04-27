@@ -22,3 +22,14 @@ Run: `npm start`
 Great, your proxy server for Spotify is now working! You should be seeing: 
 
 ![Working](https://i.imgur.com/ASJKLwc.png)
+
+# Experimental MITM support
+
+Simply run `node mitm2.js` and set the spotify proxy settings to port 8082.
+
+Then start the proxy, which allow it to generate some certificates. Then, trust the 
+root certificate at `certs/certs/ca.crt`
+
+On MacOS, you can do this with one command: `sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/certs/ca.crt`
+
+This should be perfectly safe.
