@@ -19,8 +19,8 @@ const server = http.createServer((req, res) => {
 	});
 
 	proxy.web(req, res, { target: target });
-}).listen(process.env.PORT);  //this is the port your clients will connect to
-console.log(chalk.green(`Proxy server listening on port ${process.env.PORT}`))
+}).listen(process.env.PORT || 8080);  //this is the port your clients will connect to
+console.log(chalk.green(`Proxy server listening on port ${process.env.PORT || 8080}`))
 
 const regex_hostport = /^([^:]+)(:([0-9]+))?$/;
 
