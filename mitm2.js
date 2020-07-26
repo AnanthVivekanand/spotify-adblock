@@ -7,6 +7,10 @@ const micromatch = require('micromatch');
 const whitelist = require('./whitelist-mitm.js');
 const blacklist = require('./blacklist.js');
 
+process.on('uncaughtException', function (error) {
+  console.log(error); // prevents crashing
+});
+
 mitm_proxy.onError(function (ctx, err) {
     if (err.code === "ERR_SSL_SSLV3_ALERT_CERTIFICATE_UNKNOWN") {
 	console.log("You haven't installed the generated CA certificate");
@@ -35,11 +39,17 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
       host: host,
       allowHalfOpen: true
     }, function () {
+      conn.on('close', () => {
+        conn.end();
+      });
       conn.on('finish', () => {
         socket.destroy();
       });
-      socket.on('close', () => {
-        conn.end();
+      conn.on('error', function(err) {
+        console.log("Error", err);
+      });
+      socket.on('error', function(err) {
+        console.log("Error", err);
       });
       socket.write('HTTP/1.1 200 OK\r\n\r\n', 'UTF-8', function () {
         conn.pipe(socket);
