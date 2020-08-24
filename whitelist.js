@@ -14,6 +14,7 @@ const whitelist = [
   "dealer.spotify.com", // discord rich presence
   "i.scdn.co", // cover art
   "image-upload.spotify.com", // image uploading
+  "login5.spotify.com", // login
   "lineup-images.scdn.co", // playlists lineup images
   "media.simplecast.com", // podcast
   "merch-img.scdn.co", // merch images
