@@ -1,10 +1,10 @@
 var mitm_Proxy = require('http-mitm-proxy');
 var mitm_proxy = new mitm_Proxy();
 var path = require('path');
-var CA = require('./CA.js');
+var CA = require('./mitm-utils/CA.js');
 var net = require('net');
 const micromatch = require('micromatch');
-const whitelist = require('./whitelist-mitm.js');
+const whitelist = require('./mitm-utils/whitelist-mitm.js');
 const blacklist = require('./blacklist.js');
 
 process.on('uncaughtException', function (error) {
