@@ -19,7 +19,7 @@
   "homepage": "https://github.com/AnanthVivekanand/spotify-adblock-macos#readme",
   "dependencies": {
     "chalk": "^4.0.0",
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "micromatch": "^4.0.2"
   }
 }
