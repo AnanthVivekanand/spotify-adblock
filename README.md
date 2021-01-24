@@ -28,7 +28,9 @@ Great, your proxy server for Spotify is now working! You should be seeing:
 
 ![Working](https://i.imgur.com/ASJKLwc.png)
 
-# Experimental MITM support
+However, if Spotify is loading but no songs are playing, you may be experiencing [issue #14](https://github.com/AnanthVivekanand/spotify-adblock/issues/14). In this case, use MITM support below. 
+
+# MITM support
 
 Simply run `node mitm.js` and set the spotify proxy settings to port 8082.
 
