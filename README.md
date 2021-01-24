@@ -1,6 +1,7 @@
-# MacOS Spotify Desktop Adblocker
+# Spotify Desktop Adblocker
 
-This project uses a proxy to strip all ad-related requests from the Spotify desktop application.
+This project uses a proxy to strip all ad-related requests from the Spotify desktop application. This should 
+work for all major operating systems, but if you are using Linux, I would advise you to use [this](https://github.com/abba23/spotify-adblock-linux) instead.  
 
 ## Instructions
 
@@ -11,14 +12,31 @@ Configure it as shown:
 
 ![Proxy config](https://i.imgur.com/TaEWjkB.png)
 
-Run: `git clone https://github.com/AnanthVivekanand/spotify-adblock-macos.git && cd spotify-adblock-macos` 
 
-Run: `npm i`
+Run the following commands in terminal to clone and install. 
+```
+> git clone https://github.com/AnanthVivekanand/spotify-adblock-macos.git && cd spotify-adblock-macos
+...
+> npm i
+...
+> export PORT=8080
 
-Run: `export PORT=8080`  
-
-Run: `npm start`
+> npm start
+```
 
 Great, your proxy server for Spotify is now working! You should be seeing: 
 
 ![Working](https://i.imgur.com/ASJKLwc.png)
+
+However, if Spotify is loading but no songs are playing, you may be experiencing [issue #14](https://github.com/AnanthVivekanand/spotify-adblock/issues/14). In this case, use MITM support below. 
+
+# MITM support
+
+Simply run `node mitm.js` and set the spotify proxy settings to port 8082.
+
+Then start the proxy, which allows it to generate some certificates. Then, trust the 
+root certificate at `certs/certs/ca.crt`
+
+On MacOS, you can trust the root certficate with one command: `sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/certs/ca.crt`
+
+This should be perfectly safe.
