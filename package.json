@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/AnanthVivekanand/spotify-adblock-macos#readme",
   "dependencies": {
+<<<<<<< HEAD
     "http-mitm-proxy": "^0.8.2",
+=======
+    "chalk": "^4.0.0",
+>>>>>>> master
     "http-proxy": "^1.18.0",
     "micromatch": "^4.0.2"
   }
