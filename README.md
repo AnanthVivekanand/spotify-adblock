@@ -40,3 +40,8 @@ root certificate at `certs/certs/ca.crt`
 On MacOS, you can trust the root certficate with one command: `sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/certs/ca.crt`
 
 This should be perfectly safe.
+
+# Docker image
+
+To build an image for the MITM proxy, simply run `npm run docker-mitm`, and then create a container binding the port 8082 and the folder `/usr/src/app/certs` to the host to get access to the certificates.
+The port 8082 is exposed by Docker for easier setup using a reverse-proxy.
