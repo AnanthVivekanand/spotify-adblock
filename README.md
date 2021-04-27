@@ -45,3 +45,5 @@ This should be perfectly safe.
 
 To build an image for the MITM proxy, simply run `npm run docker-mitm`, and then create a container binding the port 8082 and the folder `/usr/src/app/certs` to the host to get access to the certificates.
 The port 8082 is exposed by Docker for easier setup using a reverse-proxy.
+For example:
+```docker run -d --name=Spotify-adblock --volume=/opt/spotify-adblock/certs:/usr/src/app/certs -p 8082:8082 --restart=always spotify-adblock:latest```, where /opt/spotify-adblock/certs is the path on the host machine where you will find the certificates you need to import.
