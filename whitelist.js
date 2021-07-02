@@ -15,6 +15,7 @@ const whitelist = [
   "i.scdn.co", // cover art
   "image-upload.spotify.com", // image uploading
   "lineup-images.scdn.co", // playlists lineup images
+  "login5.spotify.com", // logging in might be important
   "media.simplecast.com", // podcast
   "merch-img.scdn.co", // merch images
   "mosaic.scdn.co", // playlist mosaic images
@@ -27,7 +28,8 @@ const whitelist = [
   "spclient.wg.spotify.com", // ads/tracking (blocked in blacklist), radio, recently played, friend activity,...
   "t.scdn.co", // background images
   "thisis-images.scdn.co", // 'this is' playlists images
-  "video-fa.scdn.co" // videos
+  "video-fa.scdn.co", // videos
+  "xpui.app.spotify.com" // XPUI is the name for the New Desktop User eXPerience
 ];
 
 module.exports = whitelist;
