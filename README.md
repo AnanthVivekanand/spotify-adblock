@@ -15,7 +15,7 @@ Configure it as shown:
 
 Run the following commands in terminal to clone and install. 
 ```
-> git clone https://github.com/AnanthVivekanand/spotify-adblock-macos.git && cd spotify-adblock-macos
+> git clone https://github.com/AnanthVivekanand/spotify-adblock.git && cd spotify-adblock
 ...
 > npm i
 ...
