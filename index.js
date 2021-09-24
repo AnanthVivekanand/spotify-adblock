@@ -5,6 +5,7 @@ const net = require('net');
 const micromatch = require('micromatch');
 const whitelist = require("./whitelist.js");
 const chalk = require('chalk');
+require('dotenv').config()
 
 const server = http.createServer((req, res) => {
 	let urlObj = url.parse(req.url);
