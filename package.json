@@ -21,6 +21,7 @@
   "homepage": "https://github.com/AnanthVivekanand/spotify-adblock#readme",
   "dependencies": {
     "chalk": "^4.0.0",
+    "dotenv": "^10.0.0",
     "http-mitm-proxy": "^0.8.2",
     "http-proxy": "^1.18.0",
     "micromatch": "^4.0.2"
