@@ -8,12 +8,12 @@ const whitelist = require('./mitm-utils/whitelist-mitm.js');
 const blacklist = require('./blacklist.js');
 
 process.on('uncaughtException', function (error) {
-  console.log(error); // prevents crashing
+  console.log('\x1b[41m%s\x1b[0m', error); // prevents crashing
 });
 
 mitm_proxy.onError(function (ctx, err) {
     if (err.code === "ERR_SSL_SSLV3_ALERT_CERTIFICATE_UNKNOWN") {
-	console.log("You haven't installed the generated CA certificate");
+	console.log('\x1b[33m%s\x1b[0m', "You haven't installed the generated CA certificate");
 	process.exit(1);
     }
 });
@@ -33,7 +33,7 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
   // is our host in the whitelist?
   // proxy it through, no questions asked
   else if (micromatch.isMatch(host, whitelist)) {
-    console.log("Allowing: " + host);
+    console.log('\x1b[32m%s\x1b[0m', "Allowing: " + host);
     var conn = net.connect({
       port: port,
       host: host,
@@ -46,10 +46,10 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
         socket.destroy();
       });
       conn.on('error', function(err) {
-        console.log("Error", err);
+        console.log('\x1b[41m%s\x1b[0m', "Error", err);
       });
       socket.on('error', function(err) {
-        console.log("Error", err);
+        console.log('\x1b[41m%s\x1b[0m', "Error", err);
       });
       socket.write('HTTP/1.1 200 OK\r\n\r\n', 'UTF-8', function () {
         conn.pipe(socket);
@@ -61,7 +61,7 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
   // okay, we have no idea what this is, so
   // we'll just block this
   else {
-    console.log("Blocking: " + host);
+    console.log('\x1b[31m%s\x1b[0m', "Blocking: " + host);
   }
 });
 
@@ -70,7 +70,7 @@ mitm_proxy.onRequest(function(ctx, callback) {
   let completeUrl = "https://" + ctx.clientToProxyRequest.headers.host + ctx.clientToProxyRequest.url;
 
   if (micromatch.isMatch(completeUrl, blacklist)) {
-    console.log("Blocked: " + completeUrl);
+    console.log('\x1b[31m%s\x1b[0m', "Blocked: " + completeUrl);
     ctx.proxyToClientResponse.end(''); // terminate it
   } else {
     return callback();
@@ -105,7 +105,7 @@ mitm_proxy.start = async function(opt) {
     CA = ca;
   });
   mitm_proxy.listen(opt)
-  console.log("Proxy is up on port " + opt.port);
+  console.log('\x1b[34m%s\x1b[0m', "Proxy is up on port " + opt.port);
 };
 
 mitm_proxy.start({port: 8082});
