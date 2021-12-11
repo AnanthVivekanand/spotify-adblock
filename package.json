@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "start-mitm": "node mitm.js",
-    "docker-mitm":"docker build -t spotify-adblock . -f Dockerfile.mitm"
+    "docker-mitm": "docker build -t spotify-adblock . -f Dockerfile.mitm"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/AnanthVivekanand/spotify-adblock#readme",
   "dependencies": {
     "chalk": "^4.0.0",
+    "colors": "^1.4.0",
     "http-mitm-proxy": "^0.8.2",
     "http-proxy": "^1.18.0",
     "micromatch": "^4.0.2"
