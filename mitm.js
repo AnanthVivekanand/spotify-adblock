@@ -7,13 +7,15 @@ const micromatch = require('micromatch');
 const whitelist = require('./mitm-utils/whitelist-mitm.js');
 const blacklist = require('./blacklist.js');
 
+var colors = require('colors');
+
 process.on('uncaughtException', function (error) {
   console.log(error); // prevents crashing
 });
 
 mitm_proxy.onError(function (ctx, err) {
     if (err.code === "ERR_SSL_SSLV3_ALERT_CERTIFICATE_UNKNOWN") {
-	console.log("You haven't installed the generated CA certificate");
+	console.log("You haven't installed the generated CA certificate".underline.red);
 	process.exit(1);
     }
 });
@@ -30,10 +32,10 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
     return callback();
   }
 
-  // is our host in the whitelist?
+  // is our host in the whitelist? or it is through port 4070?
   // proxy it through, no questions asked
-  else if (micromatch.isMatch(host, whitelist)) {
-    console.log("Allowing: " + host);
+  else if (micromatch.isMatch(host, whitelist) || port == "4070") {
+    console.log(("Allowing: " + host + ", " + port).green);
     var conn = net.connect({
       port: port,
       host: host,
@@ -61,7 +63,7 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
   // okay, we have no idea what this is, so
   // we'll just block this
   else {
-    console.log("Blocking: " + host);
+    console.log(("Blocking: " + host + ", " + port).red);
   }
 });
 
@@ -70,7 +72,7 @@ mitm_proxy.onRequest(function(ctx, callback) {
   let completeUrl = "https://" + ctx.clientToProxyRequest.headers.host + ctx.clientToProxyRequest.url;
 
   if (micromatch.isMatch(completeUrl, blacklist)) {
-    console.log("Blocked: " + completeUrl);
+    console.log(("Blocked: " + completeUrl).red);
     ctx.proxyToClientResponse.end(''); // terminate it
   } else {
     return callback();
@@ -105,7 +107,7 @@ mitm_proxy.start = async function(opt) {
     CA = ca;
   });
   mitm_proxy.listen(opt)
-  console.log("Proxy is up on port " + opt.port);
+  console.log(("Proxy is up on port " + opt.port).green);
 };
 
 mitm_proxy.start({port: 8082});
