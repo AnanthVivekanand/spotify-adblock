@@ -1,4 +1,7 @@
 const whitelist = [
+  "*.*.ap.spotify.com", // resolved access points
+  "*ap.spotify.com", // access points
+  "ap-*.spotify.com", // access points
   "localhost", // local proxies
   "audio-sp-*.pscdn.co", // audio
   "audio-fa.scdn.co", // audio
