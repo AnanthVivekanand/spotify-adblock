@@ -61,7 +61,8 @@ const whitelist = [
   "scontent*.fbcdn.net", // Facebook profile images
   "audio-sp-*.spotifycdn.net", // audio
   "dovetail.prxu.org", // podcasts
-  "dovetail-cdn.prxu.org" // podcasts
+  "dovetail-cdn.prxu.org", // podcasts
+  "blend-playlist-covers.spotifycdn.com" // blends art
 ];
 
 module.exports = whitelist;
