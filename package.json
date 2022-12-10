@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "start-mitm": "node mitm.js",
+    "start": "node mitm.js",
+    "start-old": "node filter-domains.js",
     "docker-mitm": "docker build -t spotify-adblock . -f Dockerfile.mitm"
   },
   "repository": {

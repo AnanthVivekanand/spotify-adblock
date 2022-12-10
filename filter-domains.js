@@ -3,7 +3,7 @@ const http = require("http");
 const url = require("url");
 const net = require('net');
 const micromatch = require('micromatch');
-const whitelist = require("./whitelist.js");
+const whitelist = require("./filter-domains-utils/whitelist.js");
 const chalk = require('chalk');
 
 const server = http.createServer((req, res) => {
