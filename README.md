@@ -10,36 +10,23 @@ to look under Advanced Settings).
 
 Configure it as shown:
 
-![Proxy config](https://i.imgur.com/TaEWjkB.png)
-
+<img width="769" alt="image" src="https://user-images.githubusercontent.com/40674932/206878775-b732b90d-5ae3-41a1-9bb6-f30eab1ff1d4.png">
 
 Run the following commands in terminal to clone and install. 
 ```
 > git clone https://github.com/AnanthVivekanand/spotify-adblock.git && cd spotify-adblock
 ...
 > npm i
-...
-> export PORT=8080
-
-> npm start
 ```
 
-Great, your proxy server for Spotify is now working! You should be seeing: 
-
-![Working](https://i.imgur.com/ASJKLwc.png)
-
-However, if Spotify is loading but no songs are playing, you may be experiencing [issue #14](https://github.com/AnanthVivekanand/spotify-adblock/issues/14). In this case, use MITM support below. 
-
-# MITM support
-
-Simply run `node mitm.js` and set the spotify proxy settings to port 8082.
-
-Then start the proxy, which allows it to generate some certificates. Then, trust the 
+Then start the proxy by running `node mitm.js`, which allows it to generate some certificates. Then, trust the 
 root certificate at `certs/certs/ca.crt`
 
 On MacOS, you can trust the root certficate with one command: `sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/certs/ca.crt`
 
-This should be perfectly safe.
+After trusting, run `node mitm.js` to start the proxy again. You should see:
+
+
 
 # Docker image
 
