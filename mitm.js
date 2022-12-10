@@ -5,7 +5,7 @@ var CA = require('./mitm-utils/CA.js');
 var net = require('net');
 const micromatch = require('micromatch');
 const whitelist = require('./mitm-utils/whitelist-mitm.js');
-const blacklist = require('./blacklist.js');
+const blacklist = require('./mitm-utils/blacklist-mitm.js');
 
 var colors = require('colors');
 
@@ -15,8 +15,8 @@ process.on('uncaughtException', function (error) {
 
 mitm_proxy.onError(function (ctx, err) {
     if (err.code === "ERR_SSL_SSLV3_ALERT_CERTIFICATE_UNKNOWN") {
-	console.log("You haven't installed the generated CA certificate".underline.red);
-	process.exit(1);
+      console.log("You haven't installed the generated CA certificate".underline.red);
+      process.exit(1);
     }
 });
 
