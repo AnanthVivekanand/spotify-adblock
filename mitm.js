@@ -61,9 +61,9 @@ mitm_proxy.onConnect(function(req, socket, head, callback) {
   } 
 
   // okay, we have no idea what this is, so
-  // we'll just block this
+  // handle using blacklist
   else {
-    console.log(("Blocking: " + host + ", " + port).red);
+    return callback();
   }
 });
 
@@ -75,6 +75,7 @@ mitm_proxy.onRequest(function(ctx, callback) {
     console.log(("Blocked: " + completeUrl).red);
     ctx.proxyToClientResponse.end(''); // terminate it
   } else {
+    console.log(("Allowing: " + completeUrl).green);
     return callback();
   }
 });
