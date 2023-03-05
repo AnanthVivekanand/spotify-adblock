@@ -22,7 +22,7 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "colors": "^1.4.0",
-    "http-mitm-proxy": "^0.8.2",
+    "http-mitm-proxy": "^1.0.0",
     "http-proxy": "^1.18.0",
     "micromatch": "^4.0.2"
   }
